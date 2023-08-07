@@ -1,0 +1,44 @@
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+<form  >  
+ 
+  <div class="input-group" >  
+    <div class="input-group-prepend">  
+      <button id="button-addon8" type="submit" class="btn btn-danger">     <fa-icon [icon]="faSearchengin"  [styles]="{'stroke': 'black', 'color': 'white'}"></fa-icon> </button>  
+    </div>  
+    <input type="search" placeholder="Search here..." aria-describedby="button-addon8" class="form-control">  
+  </div>  
+</form>  
+<br>
+<table class="table caption-top">
+    <caption>List of Student </caption>
+    <thead>
+      <tr>
+      
+        <th scope="col">NAME </th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">MARKS (out of 100)</th>
+        <th scope="col">PASS/ FAIL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of studentList ">
+       
+        <td >{{item.name}}</td>
+        <td>{{item.email}}</td>
+        <td [ngClass]="item.marks >= 50 ?'text-success':'text-danger'" >{{item.marks}}</td>
+        <td *ngIf="item.marks >= 50"><span [ngStyle]="{'background-color':'GREEN','color':'white'}">PASS</span></td>
+        <td  *ngIf="item.marks < 50"><span [ngStyle]="{'background-color':'red','color':'white'}">FAIL</span></td>
+      </tr>
+
+  
+    </tbody>
+  </table>
+</div>
